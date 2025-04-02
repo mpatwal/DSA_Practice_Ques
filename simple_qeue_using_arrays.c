@@ -1,35 +1,54 @@
 #include <stdio.h>
-void main()
-{
-    int front = -1, rear = -1, n, que_arr[n];
-    printf("enter the sizr of the array \t : ");
-    scanf("%d", &n);
-}
+
+int front = -1, rear = -1;
+#define SIZE 5
+int que_arr[SIZE];
+
 void insert()
 {
-    int front = -1, rear = -1, n, que_arr[n];
-    if (rear == n - 1)
+    if (rear == SIZE - 1)
     {
-        printf("overflow");
+        printf("Queue overflow\n");
+        return;
     }
     else
     {
         rear++;
-        printf("enter the element : \t");
-        scanf("%d", que_arr[rear]);
+        printf("Enter the element: ");
+        scanf("%d", &que_arr[rear]);
+
+        if (front == -1)
+            front++;
     }
-    front++;
 }
+
 void del()
 {
-    int front = -1, rear = -1, n, que_arr[n];
     if (front == -1 || front > rear)
     {
-        printf("underflow");
+        printf("Queue underflow\n");
+        front = rear = -1;
     }
     else
     {
+        printf("Element being deleted: %d\n", que_arr[front]);
         front++;
-        printf("element being deleted : ", que_arr[front]);
     }
+}
+
+int main()
+{
+    del();
+    insert();
+    insert();
+    del();
+    del();
+    del();
+    insert();
+    insert();
+    insert();
+    insert();
+    insert();
+    insert();
+    return 0;
 }
